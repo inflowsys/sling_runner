@@ -28,15 +28,10 @@ jobs:
       - name: Install dependencies
         run: uv sync
       
-      - name: Set up environment variables
+      - name: Run sling_run.py
         env:
+          TAXI_PG_PASSWORD: ${{ secrets.TAXI_PG_PASSWORD }}
           SLING_CLI_TOKEN: ${{ secrets.SLING_CLI_TOKEN }}
           SLING_DISABLE_TELEMETRY: true
-        run: |
-          # Create env.yaml if needed (you may want to use secrets for sensitive values)
-          # For now, the script will use the existing env.yaml or environment variables
-          echo "Environment configured"
-      
-      - name: Run sling_run.py
         run: uv run python sling_run.py
 
