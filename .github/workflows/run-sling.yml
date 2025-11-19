@@ -1,0 +1,42 @@
+name: Run Sling Replication
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run daily at 2:00 AM UTC (adjust cron schedule as needed)
+    # Format: minute hour day-of-month month day-of-week
+    - cron: '0 2 * * *'
+
+jobs:
+  run-sling:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+      
+      - name: Install dependencies
+        run: uv sync
+      
+      - name: Set up environment variables
+        env:
+          SLING_CLI_TOKEN: ${{ secrets.SLING_CLI_TOKEN }}
+          SLING_DISABLE_TELEMETRY: true
+        run: |
+          # Create env.yaml if needed (you may want to use secrets for sensitive values)
+          # For now, the script will use the existing env.yaml or environment variables
+          echo "Environment configured"
+      
+      - name: Run sling_run.py
+        run: uv run python sling_run.py
+
