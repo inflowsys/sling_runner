@@ -1,0 +1,30 @@
+# replication.yaml
+source: DUCKDB_TAXI
+target: TAXI_PG
+
+defaults:
+  object: public.{stream_table}
+   
+streams:
+
+# ##########################################
+  main.taxi_id:        
+    mode: incremental
+    primary_key: id
+    update_key: tpep_pickup_datetime
+    object: public.taxi_id
+    select: [id,tpep_pickup_datetime,passenger_count,fare_amount, tip_amount]
+    
+    source_options:
+      limit: 100
+    
+    target_options:
+      batch_limit: 10000
+
+# ##########################################
+    
+env:
+    SLING_THREADS: "1"
+    SLING_HOME_DIR: "."
+
+    
