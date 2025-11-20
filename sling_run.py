@@ -23,11 +23,19 @@ else:
 
 # Ensure required variables are set (from .env or environment)
 # These will be used to resolve ${VAR} syntax in env.yaml
-required_vars = ['TAXI_PG_PASSWORD', 'SLING_CLI_TOKEN', 'TAXI_PG_USER', 'INSTANCE']
-for var in required_vars:
+required_vars_secret = ['TAXI_PG_PASSWORD', 'SLING_CLI_TOKEN']
+for var in required_vars_secret:
     value = os.getenv(var)
     if value:
         print(f"Found {var} (value hidden for security)")
+    else:
+        print(f"Warning: {var} is not set in .env or environment variables")
+
+required_vars = ['TAXI_PG_USER', 'INSTANCE']
+for var in required_vars:
+    value = os.getenv(var)
+    if value:
+        print(f"Found {var} - {value}")
     else:
         print(f"Warning: {var} is not set in .env or environment variables")
 
