@@ -9,6 +9,19 @@ wheels/
 # Virtual environments
 .venv
 
+# Environment files
 .env
-.sling.db*
+
+# Sling files (should use default user home directory, not repo)
+.sling/
+.sling.db
+.sling.db-shm
+.sling.db-wal
+*.sling.db
+*.sling.db-shm
+*.sling.db-wal
+
+# DuckDB files
+*.duckdb
+*.duckdb.wal
 

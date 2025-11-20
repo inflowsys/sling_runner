@@ -1,6 +1,6 @@
 # replication.yaml
-source: DUCKDB_TAXI
-target: TAXI_PG_TEST
+source: duckdb_taxi
+target: taxi_pg_test
 
 defaults:
   object: dev.{stream_table}
