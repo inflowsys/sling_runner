@@ -7,5 +7,5 @@ requires-python = ">=3.13"
 dependencies = [
     "pyyaml>=6.0.3",
     "sling[arrow]>=1.4.26",
-    "tower>=0.3.35",
+    "tower>=0.3.36",
 ]

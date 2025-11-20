@@ -1,6 +1,6 @@
 [app]
 name = "sling_easy"
-script = "./sling_run_sub.py"
+script = "./sling_run.py"
 
 
 
