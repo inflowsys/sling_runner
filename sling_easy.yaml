@@ -3,7 +3,7 @@ source: DUCKDB_TAXI
 target: TAXI_PG_TEST
 
 defaults:
-  object: public.{stream_table}
+  object: dev.{stream_table}
    
 streams:
 
@@ -12,7 +12,7 @@ streams:
     mode: incremental
     primary_key: id
     update_key: tpep_pickup_datetime
-    object: public.taxi_id
+    object: dev.taxi_id_test
     select: [id,tpep_pickup_datetime,passenger_count,fare_amount, tip_amount]
     
     source_options:
@@ -25,6 +25,5 @@ streams:
     
 env:
     SLING_THREADS: "1"
-    SLING_HOME_DIR: "."
 
     
