@@ -3,6 +3,21 @@ name = "elt_pipeline"
 script = "./job.py"
 description = "Job that runs Sling replication followed by dbt transformations"
 
+# Include source files needed for local execution
+[source]
+include = [
+    "../sling_run.py",
+    "../sling_easy.yaml",
+    "../env.yaml",
+    "../pyproject.toml",  # Root dependencies for sling_run.py
+    "../dbt/dbt_after_el/dbt_run.py",
+    "../dbt/dbt_after_el/dbt_project.yml",
+    "../dbt/dbt_after_el/profiles.yml",
+    "../dbt/dbt_after_el/pyproject.toml",  # dbt dependencies
+    "../dbt/dbt_after_el/models/**",
+    "../dbt/dbt_after_el/macros/**",
+]
+
 # Towerfile parameters - can be overridden when running
 [[parameters]]
 name = "TOWER_PARAMETER_USE_ENV"
