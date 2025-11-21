@@ -2,5 +2,10 @@
 name = "sling_easy"
 script = "./sling_run.py"
 
+[[parameters]]
+name = "TOWER_PARAMETER_USE_ENV"
+description = "Use .env if running in development"
+default = "false"
+
 
 

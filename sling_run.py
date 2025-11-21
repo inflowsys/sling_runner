@@ -11,15 +11,28 @@ repo_root = pathlib.Path(__file__).resolve().parent
 # Note: We don't set SLING_HOME_DIR, so Sling will use its default location
 # (typically user's home directory), not the repository root
 
+# Check if Tower parameter allows using .env file
+# When running via Tower: TOWER_PARAMETER_USE_ENV controls .env loading
+# When running directly (not via Tower): default to using .env for local development
+tower_param = os.getenv('TOWER_PARAMETER_USE_ENV')
+if tower_param is not None:
+    # Running via Tower - respect the parameter
+    use_env_file = tower_param.lower() == 'true'
+else:
+    # Running directly (not via Tower) - default to using .env for local dev
+    use_env_file = True
+
 env_file = repo_root / '.env'
 
-if env_file.exists():
+if use_env_file and env_file.exists():
     print(f"Loading environment variables from .env file: {env_file}")
     # Load .env file - override=True means .env values take precedence over existing env vars
-    # This ensures Tower's .env file is used when present
+    # This ensures Tower's .env file is used when TOWER_PARAMETER_USE_ENV=true
     load_dotenv(env_file, override=True)
+elif use_env_file and not env_file.exists():
+    print("use_env_file is true but .env file not found, using environment variables only")
 else:
-    print(".env file not found, using environment variables only")
+    print("use_env_file is false, using environment variables only (not loading .env file)")
 
 # Ensure required variables are set (from .env or environment)
 # These will be used to resolve ${VAR} syntax in env.yaml
