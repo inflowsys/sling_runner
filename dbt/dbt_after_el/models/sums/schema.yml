@@ -1,0 +1,17 @@
+
+version: 2
+
+models:
+  - name: taxi_groupby 
+    description: "A group by"
+
+
+sources:
+  - name: sling_data
+    description: "Tables created by Sling replication"
+    schema: dev
+    tables:
+      - name: taxi_id_test
+        description: "Taxi data replicated by Sling from DuckDB"
+
+

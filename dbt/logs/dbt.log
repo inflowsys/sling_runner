@@ -1,0 +1,30 @@
+[0m16:44:35.797885 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000282F5B18AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000282F474C7D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000282F7BA4CD0>]}
+
+
+============================== 16:44:35.823274 | f5475f77-2dff-4e66-9fea-8f157fd18cc1 ==============================
+[0m16:44:35.823274 [info ] [MainThread]: Running with dbt=1.10.15
+[0m16:44:35.823840 [debug] [MainThread]: running dbt with arguments {'profiles_dir': 'C:\\Users\\Itamar\\.dbt', 'cache_selected_only': 'False', 'write_json': 'True', 'use_colors': 'True', 'no_print': 'None', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': 'logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'introspect': 'True', 'quiet': 'False', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'invocation_command': 'dbt init dbt_after_el', 'printer_width': '80', 'target_path': 'None'}
+[0m16:44:35.910077 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\Itamar\.dbt
+[0m16:44:35.912374 [debug] [MainThread]: Starter project path: C:\work\projects\tower_sling\.venv\Lib\site-packages\dbt\include\starter_project
+[0m16:44:35.919616 [info ] [MainThread]: 
+Your new dbt project "dbt_after_el" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:44:35.920076 [info ] [MainThread]: Setting up your profile.
+[0m16:46:01.963106 [info ] [MainThread]: Profile dbt_after_el written to C:\Users\Itamar\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m16:46:01.964007 [debug] [MainThread]: Command `dbt init` succeeded at 16:46:01.963902 after 86.25 seconds
+[0m16:46:01.964308 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000282F7D4E520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000282F7D1A7B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000282F7AE9480>]}
+[0m16:46:01.964569 [debug] [MainThread]: Flushing usage events
+[0m16:46:03.725884 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,9 @@
+[project]
+name = "elt-job"
+version = "0.1.0"
+description = "Job for ELT pipeline (Sling + dbt)"
+requires-python = ">=3.13"
+dependencies = [
+    "tower>=0.3.36",
+]
+

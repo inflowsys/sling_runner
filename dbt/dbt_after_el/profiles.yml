@@ -1,0 +1,12 @@
+dbt_after_el:
+  outputs:
+    dev:
+      dbname: tests
+      host: localhost
+      pass: ${TAXI_PG_PASSWORD}
+      port: 5432
+      schema: dev
+      threads: 1
+      type: postgres
+      user: ${TAXI_PG_USER}
+  target: dev

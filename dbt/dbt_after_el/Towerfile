@@ -1,0 +1,65 @@
+[app]
+name = "dbt_easy"
+script = "./dbt_run.py"
+
+# Include all dbt project files in the source
+# Note: target/, logs/, and __pycache__ are excluded via .gitignore
+[source]
+include = [
+    "pyproject.toml",
+    "dbt_project.yml",
+    "profiles.yml",
+    "dbt_run.py",
+    "models/**",
+    "macros/**",
+    "seeds/**",
+    "snapshots/**",
+    "tests/**",
+    "analyses/**",
+]
+
+# Environment variables for dbt configuration
+# These can be overridden via Towerfile parameters
+[env]
+DBT_COMMANDS = "run"
+DBT_TARGET = "dev"
+DBT_THREADS = "1"
+
+# Towerfile parameters - can be overridden when running
+[[parameters]]
+name = "TOWER_PARAMETER_USE_ENV"
+description = "Use .env if running in development"
+default = "false"
+
+[[parameters]]
+name = "DBT_COMMANDS"
+description = "Comma-separated list of dbt commands to run (e.g., 'seed,run,test')"
+default = "run"
+
+[[parameters]]
+name = "DBT_SELECT"
+description = "dbt selector for filtering models/tests (e.g., 'tag:daily' or 'model_name+')"
+default = ""
+
+[[parameters]]
+name = "DBT_TARGET"
+description = "Target profile to use from profiles.yml (e.g., 'dev', 'prod')"
+default = "dev"
+
+[[parameters]]
+name = "DBT_THREADS"
+description = "Number of threads for parallel execution"
+default = "1"
+
+[[parameters]]
+name = "DBT_VARS_JSON"
+description = "JSON string of variables to pass to dbt (e.g., '{\"key\": \"value\"}')"
+default = ""
+
+[[parameters]]
+name = "DBT_FULL_REFRESH"
+description = "Whether to do a full refresh of incremental models (true/false)"
+default = "false"
+
+
+

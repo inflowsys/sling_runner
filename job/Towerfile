@@ -1,0 +1,26 @@
+[app]
+name = "elt_pipeline"
+script = "./job.py"
+description = "Job that runs Sling replication followed by dbt transformations"
+
+# Towerfile parameters - can be overridden when running
+[[parameters]]
+name = "TOWER_PARAMETER_USE_ENV"
+description = "Use .env if running in development (applies to both sling and dbt)"
+default = "false"
+
+[[parameters]]
+name = "DBT_COMMANDS"
+description = "Comma-separated list of dbt commands to run (e.g., 'run,test')"
+default = "run"
+
+[[parameters]]
+name = "DBT_SELECT"
+description = "dbt selector for filtering models/tests (e.g., 'tag:daily' or 'model_name+')"
+default = ""
+
+[[parameters]]
+name = "DBT_TARGET"
+description = "Target profile to use from profiles.yml (e.g., 'dev', 'prod')"
+default = "dev"
+

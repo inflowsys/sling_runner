@@ -10,4 +10,5 @@ dependencies = [
     "tower>=0.3.36",
     "python-dotenv>=1.0.0",
     "dotenv>=0.9.9",
+    "dbt-postgres>=1.9.1",
 ]

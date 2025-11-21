@@ -1,0 +1,11 @@
+[project]
+name = "dbt-after-el"
+version = "0.1.0"
+description = "dbt project for post-EL transformations"
+requires-python = ">=3.13"
+dependencies = [
+    "tower>=0.3.36",
+    "python-dotenv>=1.0.0",
+    "dbt-postgres>=1.9.1",
+]
+
