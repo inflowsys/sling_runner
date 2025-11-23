@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Job for ELT pipeline (Sling + dbt)"
 requires-python = ">=3.13"
 dependencies = [
+    "httpx>=0.28.0",
     "tower>=0.3.36",
 ]
 
